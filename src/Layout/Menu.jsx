@@ -1,11 +1,13 @@
 import React from 'react';
-import { Header } from '../components'
+import { Header, Navbar } from '../components'
 
 const Menu = (props) => {
   return (
     <>
       <Header />
-      <div className='navbar'>
+      <Navbar />
+      {/* Comentei caso você queira manter dessa forma */}
+      {/*       <div className='navbar'>
         <h1>
           <a href='/'>TicketPlace</a>
         </h1>
@@ -18,7 +20,7 @@ const Menu = (props) => {
             <li> <a href='/login'>Usuario</a></li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
