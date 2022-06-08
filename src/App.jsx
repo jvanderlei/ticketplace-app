@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom'
-import Menu from "./Layout/Menu"
-import Content from './Layout/Content'
+import Menu from "./layout/Menu"
+import Content from './layout/Content'
 
 
 function App() {

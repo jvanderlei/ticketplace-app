@@ -1,9 +1,11 @@
 import { React } from 'react'
 import { Routes, Route } from 'react-router-dom'
-
-import Login from '../Business/Login'
-import Register from '../Business/Register'
-import TicketsList from '../Business/TicketsList'
+import { ButtonAtom } from '../components'
+import {
+    Login,
+    Register,
+    TicketsList
+} from '../pages'
 
 const Content = props => {
     return (
