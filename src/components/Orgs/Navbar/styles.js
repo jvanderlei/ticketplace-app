@@ -48,6 +48,7 @@ export const NavbarSearch = styled.div`
 `
 
 export const NavbarNavigation = styled.nav``
+
 export const NavbarList = styled.ul`
   display: flex;
   gap: 10px;

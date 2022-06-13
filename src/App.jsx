@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
-import Menu from "./layout/Menu"
-import Content from './layout/Content'
+import Layout from "./components/Orgs/Layout/Layout"
+import Content from './routes/Content'
 
 
 function App() {
   return (
     <>
       <Router>
-        <Menu />
-        <Content />
+        <Layout>
+          <Content />
+        </Layout>
       </Router>
     </>
   );
