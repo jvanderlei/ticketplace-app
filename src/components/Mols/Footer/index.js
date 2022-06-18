@@ -33,7 +33,9 @@ const Footer = () => {
           <S.UtilsLinks>Policy Privacy</S.UtilsLinks>
         </S.Flex>
       </S.UtilsLinksWrapper>
-      <S.Copyright>All rights reserved - TIcketPlace - João Vanderlei and Pedro Lima</S.Copyright>
+      <S.Copyright>
+        &copy; All rights reserved - TIcketPlace - João Vanderlei and Pedro Lima
+      </S.Copyright>
     </S.Footer>
   )
 }

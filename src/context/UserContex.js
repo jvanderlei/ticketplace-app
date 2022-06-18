@@ -1,3 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-// TODO: Create user context
+export const UserContext = React.createContext({});
+
+export const UserProvider = ({ children, ...props })  => {
+
+  const [user, setUser] = useState({
+    token: localStorage.getItem('token')
+  })
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      { children }
+    </UserContext.Provider>
+  )
+}
