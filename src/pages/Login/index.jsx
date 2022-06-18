@@ -18,21 +18,24 @@ const Login = (props) => {
   const submitLogin = (e) => {
     e.preventDefault();
     setInputValue({ username: "", password: "" })
-    console.log(inputValue);
+    console.log(inputValue)
   }
+
+  // TODO : FORGOT PASSWORD
 
   return (
     <S.Container>
       <S.FormWrapper>
         <img src={Logo} width="100%" />
         <h4>Login</h4>
-        <S.Form>
+        <S.Form onSubmit={submitLogin}>
           <InputAtom
             type="text"
             placeholder="Username"
             name="username"
             value={username}
             onChange={handleChange}
+            required
           />
           <InputAtom
             type="password"
@@ -40,11 +43,11 @@ const Login = (props) => {
             name="password"
             value={password}
             onChange={handleChange}
+            required
           />
-          <ButtonAtom type="submit" onClick={submitLogin} title='Login' backgroundColor='#2877ee' fullWidth />
+          <ButtonAtom type="submit" title='Login' backgroundColor='#2877ee' fullWidth />
         </S.Form>
         <S.HelpWrapper>
-          <a>Forgot Password</a>
           <p>Don't have account?</p>
           <a href="/register">Creat an account here</a>
         </S.HelpWrapper>

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { defaultTheme as theme } from '../../../styles/theme'
 
-
 export const InputWrapper = styled.div`
   position: relative;
   margin-bottom: 15px;
@@ -20,29 +19,29 @@ export const InputWrapper = styled.div`
 `
 
 export const Input = styled.input`
-border:none;
-padding: 10px 20px;
-background: #f2f2f2;
-position: relative;
-width: 100%;
-border-radius: 5px;
+  border:none;
+  padding: 10px 20px;
+  background: #f2f2f2;
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
 
-&:focus-visible {
-  outline: none;
-}
+  &:focus-visible {
+    outline: none;
+  }
 `
 
 export const TextArea = styled.textarea`
-position: relative;
-display: block;
-border:none;
-padding: 10px;
-border-radius: 5px;
-background: #f2f2f2;
+  position: relative;
+  display: block;
+  border:none;
+  padding: 10px;
+  border-radius: 5px;
+  background: #f2f2f2;
 
-&&:focus-visible {
-  outline: none;
-}
+  &&:focus-visible {
+    outline: none;
+  }
 `
 
 export const Label = styled.label`

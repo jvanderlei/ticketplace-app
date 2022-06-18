@@ -14,7 +14,7 @@ const Content = props => {
                 <Routes>
                     {/* <Route path="/" element={<TicketsList />} /> */}
                     <Route path="/login" element={<Login />} />
-                    {/* <Route path="/register" element={<Register />} /> */}
+                    <Route path="/register" element={<Register />} />
                     {/* <Route path="/ticket:ticketid" element={<Register />} /> */}
                     {/* <Route path='/usertickets' element={<TicketsBoughtPerUser />} /> */}
                     {/* <Route path='/ticketstosell' element={<TicketsToSellPerUser />} /> */}

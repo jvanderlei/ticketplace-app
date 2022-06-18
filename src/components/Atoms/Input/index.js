@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './style'
 
-const InputAtom = ({ type, placeholder, name, value, onChange, label }) => {
+const InputAtom = ({ type, placeholder, name, value, onChange, label, required }) => {
   return (
     <div>
       <S.InputWrapper>
@@ -14,6 +14,7 @@ const InputAtom = ({ type, placeholder, name, value, onChange, label }) => {
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          required={required}
         />
       </S.InputWrapper>
     </div>

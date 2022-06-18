@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { defaultTheme as theme } from '../../styles/theme'
-
 
 export const Container = styled.div`
   display: flex;
@@ -30,10 +28,6 @@ export const FormWrapper = styled.div`
     padding: 5px 0 20px 0;
     text-transform: uppercase;
   }
-`
-
-export const HelpWrapper = styled.div`
-  padding: 20px;
 `
 
 export const Form = styled.form``
