@@ -1,4 +1,5 @@
 import React from 'react';
+import * as S from './styles'
 import { Header, Navbar, Footer } from '../..'
 
 const Layout = ({ children }) => {
@@ -6,7 +7,9 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <Navbar />
-      {children}
+      <S.Container>
+        {children}
+      </S.Container>
       <Footer />
     </>
   )

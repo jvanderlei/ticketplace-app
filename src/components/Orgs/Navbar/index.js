@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { UserContext } from '../../../context/UserContext'
 import * as S from './styles'
 import {
   BiSearch,
@@ -12,15 +13,12 @@ import { ButtonAtom } from '../../Atoms'
 
 const Navbar = () => {
 
-  const [ user, setUser ] = useState(false)
+  const { token } = useContext(UserContext)
 
   // TODO: ADD CONTEXT USER TO VERIFY USER IS LOGGED; 
   // TOKEN && (NavItem)
   // !TOKEN && (Buttons -> Login and Register)
 
-  const handleLogin = () => {
-    setUser(true)
-  }
 
   return (
     <S.NavbarWrapper>
@@ -35,7 +33,7 @@ const Navbar = () => {
       </S.NavbarSearch>
       <S.NavbarNavigation>
         <S.NavbarList>
-          {user && (
+          {token && (
             <>
               <S.NavbarItem>
                 <S.Link href="/buys">
@@ -59,10 +57,14 @@ const Navbar = () => {
               </S.NavbarItem>
             </>
           )}
-          {!user && (
+          {!token && (
             <>
-              <ButtonAtom title="Entrar" onClick={handleLogin}/>
-              <ButtonAtom title="Registrar" backgroundColor="transparent" isDark/>
+              <a href="/login">
+                <ButtonAtom title="Entrar" />
+              </a>
+              <a href="/register">
+                <ButtonAtom title="Registrar" backgroundColor="transparent" isDark />
+              </a>
             </>
           )}
         </S.NavbarList>

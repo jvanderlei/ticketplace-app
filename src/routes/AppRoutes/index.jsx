@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Layout } from '../../components'
 import { PublicRoute, PrivateRoute } from '../index'
-import { Ticket, TicketsBoughtPerUser, TicketsList, TicketsToSellPerUser } from '../../pages'
+import { Home, TicketsList } from '../../pages'
 
 const AppRoutes = () => {
   return (
@@ -13,7 +13,7 @@ const AppRoutes = () => {
           path="/"
           element={
             <PublicRoute>
-              <Ticket />
+              <Home />
             </PublicRoute>
           }
         />

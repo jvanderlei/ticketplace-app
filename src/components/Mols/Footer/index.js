@@ -34,7 +34,7 @@ const Footer = () => {
         </S.Flex>
       </S.UtilsLinksWrapper>
       <S.Copyright>
-        &copy; All rights reserved - TIcketPlace - João Vanderlei and Pedro Lima
+        &copy; All rights reserved - TicketPlace - João Vanderlei and Pedro Lima
       </S.Copyright>
     </S.Footer>
   )

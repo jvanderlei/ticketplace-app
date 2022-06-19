@@ -3,9 +3,9 @@ import { Navigate } from 'react-router-dom'
 import { UserContext } from '../../context/UserContext'
 
 const PublicRoute = ({ children }) => {
-  const { user } = useContext(UserContext)
+  const { token } = useContext(UserContext)
 
-  return user ? <Navigate to='/'/> :  children
+  return token ? <Navigate to='/'/> :  children
 }
 
 export default PublicRoute
