@@ -1,16 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom'
-import Layout from "./components/Orgs/Layout/Layout"
-import Content from './routes/Content'
+import { AccessRoutes, AppRoutes } from './routes'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 
 function App() {
   return (
     <>
       <Router>
-        <Layout>
-          <Content />
-        </Layout>
+        <AccessRoutes />
+        <AppRoutes />
       </Router>
     </>
   );
