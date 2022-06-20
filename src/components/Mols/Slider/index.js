@@ -1,26 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import * as S from './styles'
+import { IoMdClose, IoIosArrowForward } from 'react-icons/io'
 
-const Slider = () => {
+const Slider = ({ images }) => {
 
-  // max width: x;
-  // click + 100% width;
-  // click - 100% width;
-  // IF ARRAY.LENGTH == IMAGE INDEX; RETURN 0 
+  const [visible, setVisible] = useState(true)
+  const [current, setCurrent] = useState(0)
+  const length = images.length
 
+  const handleVisibility = () => setVisible(false)
+
+  const nextImage = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1)
+  }
+
+  const previousImage = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1)
+  }
 
   return (
-    <div>
-      <div>Close button</div>
-      <div>
-        <div>Left Button</div>
-        <div>Right Button</div>
-        <div>
-          <img />
-          <img />
-          <img />
-        </div>
-      </div>
-    </div>
+    <S.SliderWrapper visible={visible}>
+      <S.CloseBtn onClick={handleVisibility}>
+        <IoMdClose />
+      </S.CloseBtn>
+      <S.Controls direction="left" onClick={previousImage}>
+        <IoIosArrowForward />
+      </S.Controls>
+      <S.Controls direction="right" onClick={nextImage}>
+        <IoIosArrowForward />
+      </S.Controls>
+      <S.ImageContainer transform={current}>
+        {images.map(({ url, alt }, index) => <S.Image src={url} alt={alt} />)}
+      </S.ImageContainer>
+    </S.SliderWrapper>
   )
 }
 
