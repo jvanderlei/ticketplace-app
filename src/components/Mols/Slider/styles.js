@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const SliderWrapper = styled.div`
   width: 100%;
-  min-height: 300px;
+  min-height: 500px;
   border-radius: 8px;
   padding: 10px;
   position: relative;
@@ -34,7 +34,6 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
   min-width: 100%;
-  border-radius: 8px;
   object-fit: cover;
 `
 

@@ -17,7 +17,7 @@ const Slider = ({ images }) => {
   const previousImage = () => {
     setCurrent(current === 0 ? length - 1 : current - 1)
   }
-
+  
   return (
     <S.SliderWrapper visible={visible}>
       <S.CloseBtn onClick={handleVisibility}>
@@ -30,7 +30,7 @@ const Slider = ({ images }) => {
         <IoIosArrowForward />
       </S.Controls>
       <S.ImageContainer transform={current}>
-        {images.map(({ url, alt }, index) => <S.Image src={url} alt={alt} />)}
+        {images.map(({ url, alt }, index) => <S.Image src={url} alt={alt} key={index} />)}
       </S.ImageContainer>
     </S.SliderWrapper>
   )
