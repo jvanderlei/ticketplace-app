@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const CardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 250px;
   border-radius: 8px;
@@ -20,15 +22,19 @@ export const ImageWrapper = styled.div`
 `
 
 export const Image = styled.img`
-  min-width: 100%;
-  height: 100%;
+  width:100%;
+  min-height: 150px;
+  height:100%;
   object-fit: cover;
+  object-position: center;
 `
 export const Infos = styled.div`
   padding: 10px;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   gap: 10px;
 `
 

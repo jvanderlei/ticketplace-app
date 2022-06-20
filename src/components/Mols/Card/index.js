@@ -3,6 +3,12 @@ import * as S from './style'
 import { ButtonAtom } from '../../index'
 
 const Card = ({ eventID, image, eventName, price, category }) => {
+
+  const moneyFormat = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  })
+
   return (
     <S.CardWrapper>
       <S.ImageWrapper>
@@ -11,7 +17,7 @@ const Card = ({ eventID, image, eventName, price, category }) => {
       <S.Infos>
         <S.Category>{category}</S.Category>
         <S.Title>{eventName}</S.Title>
-        <S.Price>{price}</S.Price>
+        <S.Price>{moneyFormat.format(price)}</S.Price>
         <a href={`/tickets/${eventID}`}>
           <ButtonAtom title="Comprar" fullWidth />
         </a>

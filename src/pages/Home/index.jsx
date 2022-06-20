@@ -1,6 +1,7 @@
 import React from 'react'
 import { Slider } from '../../components'
 import { images } from '../../mocks/images'
+import { Esportes, Music, Populares } from '../../mocks/homeCards'
 import { Card } from '../../components'
 import * as S from './styles'
 
@@ -11,106 +12,43 @@ const Home = () => {
       <section>
         <S.Title>Populares</S.Title>
         <S.Populares>
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
+          {Populares.map(({ eventID, image, eventName, price, category }) => (
+            <Card
+              eventID={eventID}
+              image={image}
+              eventName={eventName}
+              price={price}
+              category={category}
             />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
+          ))}
         </S.Populares>
       </section>
       <section>
         <S.Title>Esportes</S.Title>
         <S.Populares>
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
+          {Esportes.map(({ eventID, image, eventName, price, category }) => (
+            <Card
+              eventID={eventID}
+              image={image}
+              eventName={eventName}
+              price={price}
+              category={category}
             />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
+          ))}
         </S.Populares>
       </section>
       <section>
         <S.Title>Music</S.Title>
         <S.Populares>
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
+          {Music.map(({ eventID, image, eventName, price, category }) => (
+            <Card
+              eventID={eventID}
+              image={image}
+              eventName={eventName}
+              price={price}
+              category={category}
             />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
-          <Card 
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10"
-            eventName="Avril Lavigne - São Paulo"
-            price="R$ 300,00"
-            category="music"
-            />
+          ))}
         </S.Populares>
       </section>
     </>
