@@ -1,17 +1,50 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom'
-import Menu from "./Layout/Menu"
-import Content from './Layout/Content'
+import { Routes, Route } from 'react-router-dom'
+import { PublicRoute, PrivateRoute } from './routes'
+import { Login, Register, Home, TicketsList } from './pages'
+import { Layout } from './components'
 
 
 function App() {
   return (
-    <>
-      <Router>
-        <Menu />
-        <Content />
-      </Router>
-    </>
+    <Routes>
+      <Route>
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+      </Route>
+      <Route element={<Layout />}>
+        <Route
+          path="/"
+          element={
+            <PublicRoute>
+              <Home />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/tickets"
+          element={
+            <PrivateRoute>
+              <TicketsList />
+            </PrivateRoute>
+          }
+        />
+      </Route>
+    </Routes>
   );
 }
 

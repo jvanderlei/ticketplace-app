@@ -7,6 +7,14 @@ const globalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
   }
+
+  body { 
+    background-color: #f2f2f2;
+  }
+
+  section {
+    padding: 25px 0;
+  }
 `
 
 export default globalStyle
