@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { PublicRoute, PrivateRoute } from './routes'
-import { Login, Register, Home, TicketsList } from './pages'
+import { Login, Register, Home, TicketsList, Ticket } from './pages'
 import { Layout } from './components'
 
 
@@ -43,6 +43,13 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/ticket/:tickedId"
+          element={
+            <PublicRoute>
+              <Ticket />
+            </PublicRoute>
+          } />
       </Route>
     </Routes>
   );

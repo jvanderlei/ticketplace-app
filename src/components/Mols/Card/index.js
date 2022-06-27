@@ -18,7 +18,7 @@ const Card = ({ eventID, image, eventName, price, category }) => {
         <S.Category>{category}</S.Category>
         <S.Title>{eventName}</S.Title>
         <S.Price>{moneyFormat.format(price)}</S.Price>
-        <a href={`/tickets/${eventID}`}>
+        <a href={`/ticket/${eventID}`}>
           <ButtonAtom title="Comprar" fullWidth />
         </a>
       </S.Infos>
