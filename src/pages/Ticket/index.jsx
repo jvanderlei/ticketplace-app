@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as S from './style'
 import { ButtonAtom } from '../../components/Atoms/'
+import { GET, PATCH } from '../../services/apiconnect'
 
 
 const Ticket = (eventID) => {
@@ -16,7 +17,10 @@ const Ticket = (eventID) => {
 
   useEffect(() => {
     // dados sql
-
+      GET('users')
+      .then(data => {console.log(data)})
+      PATCH('users/1')
+      .then(data => {console.log(data)})
   })
 
   const moneyFormat = new Intl.NumberFormat('pt-BR', {

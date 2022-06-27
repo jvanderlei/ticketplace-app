@@ -2,7 +2,7 @@ import React from 'react'
 import * as S from './style'
 import { ButtonAtom } from '../../index'
 
-const Card = ({ eventID, image, eventName, price, category }) => {
+const Card = ({ eventID, image, eventName, price, category, toSell }) => {
 
   const moneyFormat = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -19,7 +19,7 @@ const Card = ({ eventID, image, eventName, price, category }) => {
         <S.Title>{eventName}</S.Title>
         <S.Price>{moneyFormat.format(price)}</S.Price>
         <a href={`/ticket/${eventID}`}>
-          <ButtonAtom title="Comprar" fullWidth />
+          <ButtonAtom title={toSell? "Comprar" : "Abrir"} fullWidth />
         </a>
       </S.Infos>
     </S.CardWrapper>
