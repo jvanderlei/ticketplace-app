@@ -35,31 +35,37 @@ function App() {
             </PublicRoute>
           }
         />
-        <Route
-          path="/tickets"
-          element={
-            <PrivateRoute>
-              <TicketsList />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/tickets">
+          <Route index
+            element={
+              <PublicRoute>
+                <TicketsList />
+              </PublicRoute>
+            } />
+          <Route path=':search'
+            element={
+              <PublicRoute>
+                <TicketsList />
+              </PublicRoute>
+            } />
+        </ Route>
         <Route
           path="/ticket/:tickedId"
           element={
-            <PublicRoute>
+            <PrivateRoute>
               <Ticket />
-            </PublicRoute>
+            </PrivateRoute>
           } />
-          <Route
+        <Route
           path="/new"
           element={
-            <PublicRoute>
+            <PrivateRoute>
               <CreateTicket />
-            </PublicRoute>
+            </PrivateRoute>
           }
         />
       </Route>
-    </Routes>
+    </Routes >
   );
 }
 

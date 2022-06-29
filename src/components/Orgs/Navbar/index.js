@@ -17,6 +17,7 @@ const Navbar = () => {
 
   const { user } = useContext(UserContext)
   const { token } = user
+  const [search, setSearch] = useState("")
 
   const handleLogout = async () => {
     const logout = await AuthLogoutService(token)
@@ -35,10 +36,10 @@ const Navbar = () => {
           <img src={FakeLogo} />
         </S.NavbarBrand>
         <S.NavbarSearch>
-          <input type="search" placeholder="Search in the market" />
-          <button>
+          <input type="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search in the market" />
+          <S.Link href={search?`/tickets/${search}` :"/tickets"}>
             <BiSearch />
-          </button>
+          </S.Link>
         </S.NavbarSearch>
         <S.NavbarNavigation>
           <S.NavbarList>
