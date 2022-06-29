@@ -6,7 +6,8 @@ import {
   BiUser,
   BiCart,
   BiHeart,
-  BiPackage
+  BiPackage,
+  BiPlus
 } from 'react-icons/bi'
 import FakeLogo from '../../../assets/images/png/FakeLogo.png'
 import { ButtonAtom } from '../../Atoms'
@@ -35,6 +36,11 @@ const Navbar = () => {
         <S.NavbarList>
           {token && (
             <>
+            <S.NavbarItem>
+                <S.Link href="/new">
+                  <BiPlus />
+                </S.Link>
+              </S.NavbarItem>
               <S.NavbarItem>
                 <S.Link href="/buys">
                   <BiPackage />
