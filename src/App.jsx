@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { PublicRoute, PrivateRoute } from './routes'
-import { Login, Register, Home, TicketsList, Ticket, CreateTicket } from './pages'
+import { Login, Register, Home, TicketsList, Ticket, CreateTicket, Profile } from './pages'
 import { Layout } from './components'
 
 
@@ -30,9 +30,15 @@ function App() {
         <Route
           path="/"
           element={
-            <PublicRoute>
-              <Home />
-            </PublicRoute>
+            <Home />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
           }
         />
         <Route
@@ -50,7 +56,7 @@ function App() {
               <Ticket />
             </PublicRoute>
           } />
-          <Route
+        <Route
           path="/new"
           element={
             <PublicRoute>
