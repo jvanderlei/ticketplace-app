@@ -5,7 +5,7 @@ import { ButtonAtom, InputAtom } from '../../components/Atoms/'
 import { GET, POST } from '../../services/apiconnect'
 
 
-const Ticket = () => {
+const CreateTicket = () => {
 
     const [inputValue, setInputValue] = useState({
         // eventName: "",
@@ -17,8 +17,9 @@ const Ticket = () => {
         description: "",
         price: ""
     });
+    const [imageUrl, setImageUrl] = useState("")
 
-    const { eventName, imageUrl, category, address, date, time, description, price, } = inputValue;
+    const { eventName, category, address, date, time, description, price, } = inputValue;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -83,7 +84,7 @@ const Ticket = () => {
                         placeholder="Endereço da Imagem"
                         name="imageUrl"
                         value={imageUrl}
-                        onChange={handleChange}
+                        onChange={handleChange; setImageUrl(e.target.value);}
                         required
                     />
                     <InputAtom
@@ -146,4 +147,4 @@ const Ticket = () => {
     )
 }
 
-export default Ticket
+export default CreateTicket
