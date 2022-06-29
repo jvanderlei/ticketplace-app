@@ -51,12 +51,6 @@ const Navbar = () => {
                   </S.Link>
                 </S.NavbarItem>
                 <S.NavbarItem>
-                  <span>Favorites</span>
-                  <S.Link href="/favorites">
-                    <BiHeart />
-                  </S.Link>
-                </S.NavbarItem>
-                <S.NavbarItem>
                   <span>Cart</span>
                   <S.Link href="/cart">
                     <BiCart />
