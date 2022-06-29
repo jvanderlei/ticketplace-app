@@ -72,7 +72,7 @@ export const DropwdownList = styled.ul`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: ${theme.colors.primary};
+  background: ${theme.colors.white};
   border-radius: 8px;
   cursor: pointer;
   color: ${theme.colors.light};
@@ -97,16 +97,21 @@ export const Link = styled.a`
 
 export const DropwdownItem = styled.li`
   list-style: none;
-  padding: 10px;
+  padding: 3px;
   color: ${theme.colors.white};
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid #cbd5e1;
+  }
+
   &:hover {
     color: #f2f2f2;
   }
 
-  a{
-    color: ${theme.colors.white};
+  a {
+    color: ${theme.colors.primary};
     font-size: 12px;
     text-decoration: none;
   }

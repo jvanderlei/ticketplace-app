@@ -37,7 +37,8 @@ export const AuthRegisterService = async ({ name, lastName, email, password, pho
   return data
 }
 
-export const AuthLogoutService = async ({ token }) => {
+export const AuthLogoutService = async (token) => {
+  
   const data = await fetch(BASE_URL + 'auth/logout', {
     method: 'POST',
     headers: {

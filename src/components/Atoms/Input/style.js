@@ -38,6 +38,7 @@ export const TextArea = styled.textarea`
   padding: 10px;
   border-radius: 5px;
   background: #f2f2f2;
+  resize: none;
 
   &&:focus-visible {
     outline: none;

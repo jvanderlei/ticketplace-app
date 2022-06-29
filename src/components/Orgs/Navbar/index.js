@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { AuthLogoutService } from '../../../services/AuthService'
 import { UserContext } from '../../../context/UserContext'
 import * as S from './styles'
 import {
@@ -6,7 +7,8 @@ import {
   BiUser,
   BiCart,
   BiHeart,
-  BiPackage
+  BiPackage,
+  BiPlus
 } from 'react-icons/bi'
 import FakeLogo from '../../../assets/images/png/FakeLogo.png'
 import { ButtonAtom } from '../../Atoms'
@@ -15,6 +17,16 @@ const Navbar = () => {
 
   const { user } = useContext(UserContext)
   const { token } = user
+
+  const handleLogout = async () => {
+    const logout = await AuthLogoutService(token)
+
+    if (logout.status === 200) {
+      localStorage.removeItem('TICKETPLACE@TOKEN')
+      window.location.reload()
+    }
+
+  }
 
   return (
     <S.Nav>
@@ -48,13 +60,18 @@ const Navbar = () => {
                   </S.Link>
                 </S.NavbarItem>
                 <S.NavbarItem>
-                  <S.Link href="profile">
+                  <S.Link>
                     <BiUser />
                   </S.Link>
                   <S.DropwdownList>
                     <S.DropwdownItem>
                       <S.Link href="profile">
-                        LOGOUT
+                        Profile
+                      </S.Link>
+                    </S.DropwdownItem>
+                    <S.DropwdownItem>
+                      <S.Link onClick={handleLogout}>
+                        Logout
                       </S.Link>
                     </S.DropwdownItem>
                   </S.DropwdownList>
