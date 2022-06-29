@@ -8,7 +8,6 @@ import {
   BiCart,
   BiHeart,
   BiPackage,
-  BiPlus
 } from 'react-icons/bi'
 import FakeLogo from '../../../assets/images/png/FakeLogo.png'
 import { ButtonAtom } from '../../Atoms'
@@ -65,7 +64,7 @@ const Navbar = () => {
                   </S.Link>
                   <S.DropwdownList>
                     <S.DropwdownItem>
-                      <S.Link href="profile">
+                      <S.Link href="/profile">
                         Profile
                       </S.Link>
                     </S.DropwdownItem>
