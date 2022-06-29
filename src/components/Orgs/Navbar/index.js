@@ -13,12 +13,8 @@ import { ButtonAtom } from '../../Atoms'
 
 const Navbar = () => {
 
-  const { token } = useContext(UserContext)
-
-  // TODO: ADD CONTEXT USER TO VERIFY USER IS LOGGED; 
-  // TOKEN && (NavItem)
-  // !TOKEN && (Buttons -> Login and Register)
-
+  const { user } = useContext(UserContext)
+  const { token } = user
 
   return (
     <S.NavbarWrapper>

@@ -37,3 +37,9 @@ export const HelpWrapper = styled.div`
 `
 
 export const Form = styled.form``
+
+export const Error = styled.p`
+  font-size: 12px;
+  color: ${theme.colors.error};
+  padding-bottom: 10px;
+`

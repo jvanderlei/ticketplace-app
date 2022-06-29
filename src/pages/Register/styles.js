@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { defaultTheme as theme } from '../../styles/theme'
 
 export const Container = styled.div`
   display: flex;
@@ -28,6 +29,12 @@ export const FormWrapper = styled.div`
     padding: 5px 0 20px 0;
     text-transform: uppercase;
   }
+`
+
+export const Error = styled.p`
+  font-size: 12px;
+  color: ${theme.colors.error};
+  padding-bottom: 10px;
 `
 
 export const Form = styled.form``

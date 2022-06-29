@@ -5,5 +5,6 @@ export const defaultTheme = {
     light: '#fafafa',
     white: '#ffffff',
     gray: '#808080',
+    error: '#FF9494'
   }
 }

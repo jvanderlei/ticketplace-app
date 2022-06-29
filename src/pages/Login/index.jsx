@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext'
+import { AuthLoginService } from '../../services/AuthService'
 import Logo from '../../assets/images/png/FakeLogo.png'
 import { ButtonAtom, InputAtom } from '../../components';
 import * as S from './styles'
 
 const Login = (props) => {
-  const [inputValue, setInputValue] = useState({ username: "", password: "" });
-  const { username, password } = inputValue;
+  const navigate = useNavigate();
+  const { setUser } = useContext(UserContext)
+  const [inputValue, setInputValue] = useState({ email: "", password: "" });
+  const [ error, setError ] = useState();
+  const [ loading, setLoading ] = useState(false)
+  const { email, password } = inputValue;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,10 +22,24 @@ const Login = (props) => {
     }));
   };
 
-  const submitLogin = (e) => {
+  const submitLogin = async (e) => {
     e.preventDefault();
-    setInputValue({ username: "", password: "" })
-    console.log(inputValue)
+    setLoading(true);
+    
+    const requestLogin = await AuthLoginService(inputValue);
+    if (requestLogin.status === 200) {
+      setInputValue({ email: "", password: "" })
+      localStorage.setItem('TICKETPLACE@TOKEN', requestLogin.token);
+      setUser({ token: localStorage.getItem('TICKETPLACE@TOKEN') });
+      navigate('/')
+    }
+
+    if (requestLogin.status === 400) {
+      setError("Verify your email and password - server error: " + requestLogin.error);
+    }
+
+    setLoading(false);
+    setInputValue({ email: "", password: "" })
   }
 
   // TODO : FORGOT PASSWORD
@@ -28,12 +49,13 @@ const Login = (props) => {
       <S.FormWrapper>
         <img src={Logo} width="100%" />
         <h4>Login</h4>
+        { error && <S.Error>{error}</S.Error> }
         <S.Form onSubmit={submitLogin}>
           <InputAtom
-            type="text"
-            placeholder="Username"
-            name="username"
-            value={username}
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={email}
             onChange={handleChange}
             required
           />
@@ -45,11 +67,11 @@ const Login = (props) => {
             onChange={handleChange}
             required
           />
-          <ButtonAtom type="submit" title='Login' backgroundColor='#2877ee' fullWidth />
+          <ButtonAtom type="submit" title={ loading ? "Loading..." : "Login" } backgroundColor='#2877ee' fullWidth />
         </S.Form>
         <S.HelpWrapper>
           <p>Don't have account?</p>
-          <a href="/register">Creat an account here</a>
+          <a href="/register">Create an account here</a>
         </S.HelpWrapper>
       </S.FormWrapper>
     </S.Container>

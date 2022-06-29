@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/png/FakeLogo.png'
 import { ButtonAtom, InputAtom } from '../../components';
+import { AuthRegisterService } from '../../services/AuthService';
 import * as S from './styles'
 
 const Register = (props) => {
+  const navigate = useNavigate();
+  const [ error, setError ] = useState();
   const [inputValue, setInputValue] = useState({
     name: "",
+    lastName: "",
+    phoneNumber: "",
     email: "",
-    username: "",
     password: "",
     confirmPassword: ""
   });
-  const { name, email, username, password, confirmPassword } = inputValue;
+  const { name, lastName, phoneNumber, email, password, confirmPassword } = inputValue;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,17 +26,30 @@ const Register = (props) => {
     }));
   };
 
-  const submitRegistration = (e) => {
+
+  const submitRegistration = async (e) => {
     e.preventDefault();
+
     if (password === confirmPassword) {
-      setInputValue({
-        name: "",
-        email: "",
-        username: "",
-        password: "",
-        confirmPassword: ""
-      });
+      const requestRegister = await AuthRegisterService(inputValue);
+
+      if (requestRegister.status === 200) {
+        navigate('/login')
+      }
+
+      if (requestRegister.status === 400) {
+        setError(requestRegister.error)
+      }
     }
+
+    setInputValue({
+      name: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
+      confirmPassword: ""
+    });
   }
 
   return (
@@ -39,12 +57,21 @@ const Register = (props) => {
       <S.FormWrapper>
         <img src={Logo} width="100%" />
         <h4>Register</h4>
+        { error && <S.Error>{error}</S.Error> }
         <S.Form onSubmit={submitRegistration}>
           <InputAtom
             type="text"
             placeholder="Name"
             name="name"
             value={name}
+            onChange={handleChange}
+            required
+          />
+          <InputAtom
+            type="text"
+            placeholder="Last name"
+            name="lastName"
+            value={lastName}
             onChange={handleChange}
             required
           />
@@ -58,9 +85,9 @@ const Register = (props) => {
           />
           <InputAtom
             type="text"
-            placeholder="Username"
-            name="username"
-            value={username}
+            placeholder="Phone number"
+            name="phoneNumber"
+            value={phoneNumber}
             onChange={handleChange}
             required
           />
