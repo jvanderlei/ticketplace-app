@@ -65,13 +65,15 @@ const CreateTicket = () => {
 
     return (
         <S.Container>
-            <S.ImageWrapper>
-                <S.Image src={imageUrl || Blank} ></S.Image>
-            </S.ImageWrapper>
-            <S.FormWrapper>
-                <h4>Criar Evento</h4>
-                <S.Form onSubmit={submitTicket}>
-                    {/* <InputAtom
+            <S.CreateTicketWrapper>
+
+                <S.ImageWrapper>
+                    <S.Image src={imageUrl || Blank} ></S.Image>
+                </S.ImageWrapper>
+                <S.FormWrapper>
+                    <h4>Criar Evento</h4>
+                    <S.Form onSubmit={submitTicket}>
+                        {/* <InputAtom
                         type="text"
                         placeholder="Name"
                         name="eventName"
@@ -95,54 +97,55 @@ const CreateTicket = () => {
                         onChange={handleChange}
                         required
                     /> */}
-                    <InputAtom
-                        type="text"
-                        placeholder="Endereço"
-                        name="address"
-                        value={address}
-                        onChange={handleChange}
-                        required
-                    />
-                    <InputAtom
-                        type="date"
-                        placeholder="Data"
-                        name="date"
-                        value={date}
-                        onChange={handleChange}
-                        required
-                    />
-                    <InputAtom
-                        type="text"
-                        placeholder="Horario"
-                        name="time"
-                        value={time}
-                        onChange={handleChange}
-                        required
-                    />
-                    <InputAtom
-                        type="text"
-                        placeholder="Preço"
-                        name="price"
-                        value={price}
-                        onChange={handleChange}
-                        required
-                    />
-                    <InputAtom
-                        type="message"
-                        placeholder="Descrição do Evento"
-                        name="description"
-                        value={description}
-                        onChange={handleChange}
-                        required
-                    />
-                    <ButtonAtom
-                        type="submit"
-                        title='Cria Evento'
-                        backgroundColor='#2877ee'
-                        fullWidth
-                    />
-                </S.Form>
-            </S.FormWrapper>
+                        <InputAtom
+                            type="text"
+                            placeholder="Endereço"
+                            name="address"
+                            value={address}
+                            onChange={handleChange}
+                            required
+                        />
+                        <InputAtom
+                            type="date"
+                            placeholder="Data"
+                            name="date"
+                            value={date}
+                            onChange={handleChange}
+                            required
+                        />
+                        <InputAtom
+                            type="text"
+                            placeholder="Horario"
+                            name="time"
+                            value={time}
+                            onChange={handleChange}
+                            required
+                        />
+                        <InputAtom
+                            type="text"
+                            placeholder="Preço"
+                            name="price"
+                            value={price}
+                            onChange={handleChange}
+                            required
+                        />
+                        <InputAtom
+                            type="message"
+                            placeholder="Descrição do Evento"
+                            name="description"
+                            value={description}
+                            onChange={handleChange}
+                            required
+                        />
+                        <ButtonAtom
+                            type="submit"
+                            title='Cria Evento'
+                            backgroundColor='#2877ee'
+                            fullWidth
+                        />
+                    </S.Form>
+                </S.FormWrapper>
+            </S.CreateTicketWrapper>
         </S.Container>
     )
 }

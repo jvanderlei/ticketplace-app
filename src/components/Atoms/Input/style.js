@@ -33,6 +33,7 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   position: relative;
+  width: 100%;
   display: block;
   border:none;
   padding: 10px;
