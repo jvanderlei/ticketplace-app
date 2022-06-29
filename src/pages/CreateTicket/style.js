@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 50px 20px;
   background: #f2f2f2;
 `
 export const ImageWrapper = styled.div`
