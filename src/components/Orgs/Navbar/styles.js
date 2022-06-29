@@ -25,35 +25,6 @@ export const NavbarBrand = styled.a`
     max-width: 70px;
   }
 `
-export const NavbarSearch = styled.div`
-  width: 100%;
-  background: ${theme.colors.primary};
-  display: flex;
-  border: 2px solid ${theme.colors.primary};
-  border-radius: 8px;
-
-  > * {
-    padding: 10px;
-    border: none;
-  }
-
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: ${theme.colors.primary};
-    color: ${theme.colors.light};
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  input {
-    width: 100%;
-    outline: none;
-    border-radius: 8px;
-    background: ${theme.colors.white};
-  }
-`
 
 export const NavbarNavigation = styled.nav``
 
@@ -82,6 +53,7 @@ export const DropwdownList = styled.ul`
 `
 
 export const Link = styled.a`
+  position: relative;
   cursor: pointer;
   font-size: 20px;
   display: flex;
@@ -91,7 +63,7 @@ export const Link = styled.a`
   color: ${theme.colors.dark};
 
   &&:hover {
-    color: ${theme.colors.primary}
+    color: ${theme.colors.primary};
   }
 `
 
@@ -119,14 +91,75 @@ export const DropwdownItem = styled.li`
 
 export const NavbarItem = styled.li`
   position: relative;
+  display: flex;
+  justify-content: center;
   list-style: none;
   border-radius: 8px;
   border: 1px solid #cbd5e1;
+
+  span {
+    background: #808080;
+    opacity: 0;
+    position: absolute;
+    bottom: calc(100% + 7px);
+    border-radius: 3px;
+    min-width: max-content;
+    padding: 2px 10px;
+    color: ${theme.colors.white};
+    font-size: 10px;
+    font-weight: 300;
+    transition: all 0.5s ease-in-out;
+  }
+
+  span::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 2.5px);
+    bottom: -2.5px;
+    width: 5px;
+    height: 5px;
+    background: ${theme.colors.gray};
+    transform: rotate(45deg);
+  }
 
   &:hover {
     ${DropwdownList} {
       display: flex;
       transition: all 1s ease-in-out;
     }
+
+    span {
+      opacity: 1;
+    }
+  }
+`
+
+export const NavbarSearch = styled.div`
+  width: 100%;
+  background: ${theme.colors.primary};
+  display: flex;
+  border: 2px solid ${theme.colors.primary};
+  border-radius: 8px;
+
+  > * {
+    padding: 10px;
+    border: none;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: ${theme.colors.primary};
+    color: ${theme.colors.white};
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    border-radius: 8px;
+    background: ${theme.colors.white};
   }
 `

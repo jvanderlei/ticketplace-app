@@ -36,7 +36,7 @@ const Navbar = () => {
         </S.NavbarBrand>
         <S.NavbarSearch>
           <input type="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search in the market" />
-          <S.Link href={search?`/tickets/${search}` :"/tickets"}>
+          <S.Link href={search ? `/tickets/${search}` : "/tickets"}>
             <BiSearch />
           </S.Link>
         </S.NavbarSearch>
@@ -45,21 +45,25 @@ const Navbar = () => {
             {token && (
               <>
                 <S.NavbarItem>
+                  <span>My tickets</span>
                   <S.Link href="/buys">
                     <BiPackage />
                   </S.Link>
                 </S.NavbarItem>
                 <S.NavbarItem>
+                  <span>Favorites</span>
                   <S.Link href="/favorites">
                     <BiHeart />
                   </S.Link>
                 </S.NavbarItem>
                 <S.NavbarItem>
+                  <span>Cart</span>
                   <S.Link href="/cart">
                     <BiCart />
                   </S.Link>
                 </S.NavbarItem>
                 <S.NavbarItem>
+                  <span>Profile</span>
                   <S.Link>
                     <BiUser />
                   </S.Link>
