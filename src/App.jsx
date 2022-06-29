@@ -50,8 +50,7 @@ function App() {
               <Ticket />
             </PublicRoute>
           } />
-      </Route>
-      <Route
+          <Route
           path="/new"
           element={
             <PublicRoute>
@@ -59,6 +58,7 @@ function App() {
             </PublicRoute>
           }
         />
+      </Route>
     </Routes>
   );
 }

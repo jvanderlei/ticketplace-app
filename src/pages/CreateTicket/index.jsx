@@ -2,21 +2,23 @@ import React, { useState, useEffect } from 'react'
 import * as S from './style'
 import Blank from '../../assets/images/png/No-Image-Placeholder.svg.png'
 import { ButtonAtom, InputAtom } from '../../components/Atoms/'
-import { GET, PATCH } from '../../services/apiconnect'
+import { GET, POST } from '../../services/apiconnect'
 
 
-const Ticket = (eventID) => {
+const Ticket = () => {
 
     const [inputValue, setInputValue] = useState({
-        eventName: "",
-        imageUrl: "",
-        category: "",
+        // eventName: "",
+        // imageUrl: "",
+        // category: "",
         address: "",
+        date: "",
+        time: "",
         description: "",
         price: ""
     });
 
-    const { eventName, imageUrl, category, address, description, price, } = inputValue;
+    const { eventName, imageUrl, category, address, date, time, description, price, } = inputValue;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -26,19 +28,33 @@ const Ticket = (eventID) => {
         }));
     };
 
-    
-    const submitRegistration = (e) => {
+
+    const submitTicket = (e) => {
         e.preventDefault();
-        if (false) {
-          setInputValue({
-            name: "",
-            email: "",
-            username: "",
-            password: "",
-            confirmPassword: ""
-          });
+        let recObj = {
+            address,
+            date,
+            time,
+            value: price,
+            description
         }
-      }
+        recObj = JSON.stringify(recObj)
+        console.log(recObj)
+        POST("tickets", recObj)
+            .then(data => {
+                console.log(data);
+            })
+        setInputValue({
+            // eventName: "",
+            // imageUrl: "",
+            // category: "",
+            address: "",
+            date: "",
+            time: "",
+            description: "",
+            price: ""
+        });
+    }
 
 
     const moneyFormat = new Intl.NumberFormat('pt-BR', {
@@ -53,8 +69,8 @@ const Ticket = (eventID) => {
             </S.ImageWrapper>
             <S.FormWrapper>
                 <h4>Criar Evento</h4>
-                <S.Form onSubmit={submitRegistration}>
-                    <InputAtom
+                <S.Form onSubmit={submitTicket}>
+                    {/* <InputAtom
                         type="text"
                         placeholder="Name"
                         name="eventName"
@@ -77,12 +93,28 @@ const Ticket = (eventID) => {
                         value={category}
                         onChange={handleChange}
                         required
-                    />
+                    /> */}
                     <InputAtom
                         type="text"
                         placeholder="Endereço"
                         name="address"
                         value={address}
+                        onChange={handleChange}
+                        required
+                    />
+                    <InputAtom
+                        type="date"
+                        placeholder="Data"
+                        name="date"
+                        value={date}
+                        onChange={handleChange}
+                        required
+                    />
+                    <InputAtom
+                        type="text"
+                        placeholder="Horario"
+                        name="time"
+                        value={time}
                         onChange={handleChange}
                         required
                     />
@@ -94,7 +126,7 @@ const Ticket = (eventID) => {
                         onChange={handleChange}
                         required
                     />
-                      <InputAtom
+                    <InputAtom
                         type="message"
                         placeholder="Descrição do Evento"
                         name="description"
