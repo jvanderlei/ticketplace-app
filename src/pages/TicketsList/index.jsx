@@ -7,11 +7,10 @@ import * as S from './style'
 
 
 const TicketsList = () => {
-
   const [events, setEvents] = useState([])
   let { search } = useParams()
   useEffect(() => {
-    GET(search?`tickets/${search}`: "tickets/")
+    GET(search?`tickets/search/${search}`: "tickets/")
       .then(data => {
         setEvents(data.tickets)
       })
