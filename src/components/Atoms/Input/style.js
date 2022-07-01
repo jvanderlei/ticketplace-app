@@ -46,6 +46,21 @@ export const TextArea = styled.textarea`
   }
 `
 
+export const Select = styled.select`
+  position: relative;
+  width: 100%;
+  display: block;
+  border:none;
+  padding: 10px;
+  border-radius: 5px;
+  background: #f2f2f2;
+  resize: none;
+
+  &&:focus-visible {
+    outline: none;
+  }
+`
+
 export const Label = styled.label`
 display:block;
 font-size: 12px;
@@ -58,6 +73,10 @@ padding: 5px 0;
 export const InputComponent = ({ type, ...props }) => {
 if (type === 'message') {
   return <TextArea {...props}/>
+}
+
+if(type === 'select') {
+  return <Select {...props} />
 }
 
 return <Input type={type} {...props}/>

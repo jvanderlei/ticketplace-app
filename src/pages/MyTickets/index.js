@@ -22,6 +22,10 @@ const MyTickets = () => {
     const userId = await getUserIdByToken(token);
     const response = await GET(`/userTickets/sell/${userId}`).then(data => {
       const { User_Tickets } = data;
+      if (!User_Tickets) {
+        setLoading(false);
+        setError(true);
+      }
       setLoading(false);
       setTickets(User_Tickets);
     }).catch(error => {

@@ -11,7 +11,7 @@ export const Container = styled.div`
 `
 export const ImageWrapper = styled.div`
   width: 100%;
-  height: 450px;
+  height: 600px;
   overflow: hidden;
   border-radius: 8px 0 0 8px;
 `
