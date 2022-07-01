@@ -95,13 +95,37 @@ export const Address = styled.p`
 `
 
 
-export const PaymentWarning = styled.div`
+export const PaymentWarningWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
   display: flex;
-  max-width: max-content;
+  width: 100%;
   justify-content: center;
   align-items: center;
   margin: auto;
   padding: 10px;
   border-radius: 8px;
+  transition: all 0.5s linear;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    top: 30px;
+    transition: all 0.5s linear;
+  }
+`
+
+export const PaymentWarning = styled.p`
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: auto;
+  padding: 10px;
+  border-radius: 8px;
   background: ${theme.colors.primary};
+  text-align: center;
+  width: max-content;
 `

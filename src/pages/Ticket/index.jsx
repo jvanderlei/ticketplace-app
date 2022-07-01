@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Categories } from '../../utils/CategoryMap'
-import { useParams } from 'react-router-dom'
+import Blank from '../../assets/images/png/noImage.png'
+import { useParams, useNavigate } from 'react-router-dom'
 import * as S from './style'
 import { ButtonAtom } from '../../components/Atoms/'
 import { GET, PATCH } from '../../services/apiconnect'
@@ -9,9 +10,10 @@ import { GET, PATCH } from '../../services/apiconnect'
 
 const Ticket = () => {
   let { tickedId } = useParams()
+  const navigate = useNavigate()
 
   const [ticket, setTicket] = useState({})
-  const [sucess, setSucess] = useState()
+  const [sucess, setSucess] = useState(false)
   const { id, eventName, ticketImage, description, time, date, address, value, categoryId } = ticket
   const CategoryMap = Categories[categoryId]
 
@@ -27,7 +29,9 @@ const Ticket = () => {
     await PATCH(`userTickets/buy/${id}`, JSON.stringify(data))
       .then(data => {
         setSucess(true)
-
+        setInterval(() => {
+          navigate('/')
+        }, 2000)
       }).catch(err => {
         console.log(err)
       });
@@ -50,12 +54,14 @@ const Ticket = () => {
   return (
     <S.TicketWrapper>
       {sucess && (
-        <>
-
-        </>
+        <S.PaymentWarningWrapper className={sucess && 'visible'} sucess={sucess}>
+          <S.PaymentWarning>
+            Compra realizada com sucesso!
+          </S.PaymentWarning>
+        </S.PaymentWarningWrapper>
       )}
       <S.ImageWrapper>
-        <S.Image src={ticketImage}></S.Image>
+        <S.Image src={ticketImage || Blank}></S.Image>
       </S.ImageWrapper>
       <S.Infos>
         <S.Title>{eventName}</S.Title>

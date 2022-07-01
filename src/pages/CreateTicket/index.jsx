@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import * as S from './style'
-import Blank from '../../assets/images/png/No-Image-Placeholder.svg.png'
+import Blank from '../../assets/images/png/noImage.png'
 import { ButtonAtom, InputAtom } from '../../components/Atoms/'
 import { GET, PATCH, POST } from '../../services/apiconnect'
 import { useParams } from 'react-router-dom'
@@ -126,7 +126,6 @@ const CreateTicket = () => {
 							name="ticketImage"
 							value={ticketImage}
 							onChange={handleChange}
-							required
 						/>
 						<InputAtom
 							type="select"
