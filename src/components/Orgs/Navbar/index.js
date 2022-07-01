@@ -14,6 +14,9 @@ import {
 import {
   GiTicket
 } from 'react-icons/gi'
+import {
+  TbShoppingCartPlus
+} from 'react-icons/tb'
 
 
 const Navbar = () => {
@@ -51,6 +54,12 @@ const Navbar = () => {
                 <S.NavbarItem>
                   <span>New ticket</span>
                   <S.Link href="/new">
+                    <TbShoppingCartPlus />
+                  </S.Link>
+                </S.NavbarItem>
+                <S.NavbarItem>
+                  <span>Tickets</span>
+                  <S.Link href="/tickets">
                     <GiTicket />
                   </S.Link>
                 </S.NavbarItem>

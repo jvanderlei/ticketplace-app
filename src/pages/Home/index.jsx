@@ -12,13 +12,13 @@ const Home = () => {
       <section>
         <S.Title>Recentes</S.Title>
         <S.Populares>
-          {Populares.map(({ eventID, image, eventName, price, category }) => (
+          {Populares.map(({ eventID, image, eventName, price, categoryId }) => (
             <Card
               eventID={eventID}
               image={image}
               eventName={eventName}
               price={price}
-              category={category}
+              category={categoryId}
             />
           ))}
         </S.Populares>
@@ -26,13 +26,13 @@ const Home = () => {
       <section>
         <S.Title>Esportes</S.Title>
         <S.Populares>
-          {Esportes.map(({ eventID, image, eventName, price, category }) => (
+          {Esportes.map(({ eventID, image, eventName, price, categoryId }) => (
             <Card
               eventID={eventID}
               image={image}
               eventName={eventName}
               price={price}
-              category={category}
+              category={categoryId}
             />
           ))}
         </S.Populares>
@@ -40,13 +40,13 @@ const Home = () => {
       <section>
         <S.Title>Music</S.Title>
         <S.Populares>
-          {Music.map(({ eventID, image, eventName, price, category }) => (
+          {Music.map(({ eventID, image, eventName, price, categoryId }) => (
             <Card
               eventID={eventID}
               image={image}
               eventName={eventName}
               price={price}
-              category={category}
+              category={categoryId}
             />
           ))}
         </S.Populares>

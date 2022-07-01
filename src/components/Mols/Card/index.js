@@ -4,7 +4,7 @@ import { ButtonAtom } from '../../index'
 import NoImage from  '../../../assets/images/png/noImage.png'
 import { Categories } from '../../../utils/CategoryMap'
 
-const Card = ({ eventID, image, eventName, price, category, toSell }) => {
+const Card = ({ eventID, image, eventName, price, category }) => {
 
   const moneyFormat = new Intl.NumberFormat('pt-BR', {
     style: 'currency',

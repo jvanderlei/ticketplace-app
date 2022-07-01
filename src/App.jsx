@@ -41,18 +41,21 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/tickets">
-          <Route index
+        <Route
+          path="/tickets"
+          layout={<Layout />}>
+          <Route
+            index
             element={
-              <PublicRoute>
+              <PrivateRoute>
                 <TicketsList />
-              </PublicRoute>
+              </PrivateRoute>
             } />
           <Route path=':search'
             element={
-              <PublicRoute>
+              <PrivateRoute>
                 <TicketsList />
-              </PublicRoute>
+              </PrivateRoute>
             } />
         </ Route>
         <Route
@@ -62,7 +65,7 @@ function App() {
               <Ticket />
             </PrivateRoute>
           } />
-         <Route
+        <Route
           path="/new"
         >
           <Route index
@@ -77,7 +80,7 @@ function App() {
                 <CreateTicket />
               </PrivateRoute>
             } />
-        </Route>  
+        </Route>
         <Route
           path="/mytickets"
           element={

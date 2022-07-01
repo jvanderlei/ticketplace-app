@@ -6,8 +6,8 @@ export const Title = styled.h3`
 `
 
 export const Populares = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   justify-content: space-evenly;
   gap: 45px;
 `

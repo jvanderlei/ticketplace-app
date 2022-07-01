@@ -1,10 +1,12 @@
 import styled from 'styled-components'
+import { defaultTheme as theme } from '../../styles/theme'
 
 export const TicketWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   border-radius: 8px;
   margin: auto;
   justify-content: space-between;
@@ -26,8 +28,8 @@ export const Image = styled.img`
   object-position: center;
 `
 export const Infos = styled.div`
-  width: 70%;
-  padding: 10px;
+  width: 100%;
+  padding: 30px;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -37,14 +39,19 @@ export const Infos = styled.div`
 
 `
 
+export const PaymentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 100%;
+`
+
 export const Buy = styled.div`
-  width: 26%;
-  margin: 2%;
   text-transform: uppercase;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: end;
   border-radius: 8px;
+  max-width: max-content;
   gap: 10px;
   background: #DCDCDC;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -67,24 +74,34 @@ export const Category = styled.p`
 `
 
 export const Description = styled.p`
-  margin: 20px 0 0 20px;
   width: 100%;
   font-size: 16px;
 `
 
 export const Title = styled.h1`
-  padding: 3%;
   margin:auto;
-  box-shadow: rgba(40, 119, 238, 0.4) -5px 5px, rgba(	40, 119, 238, 0.3) -10px 10px, rgba(	40, 119, 238, 0.2) -15px 15px, rgba(	40, 119, 238, 0.1) -20px 20px, rgba(	40, 119, 238, 0.05) -25px 25px;`
-  // box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  `
 
 export const Price = styled.p`
   margin: auto;
   font-weight: thin;
   font-size: 20px;
+  padding: 0 20px;
 `
 export const Address = styled.p`
   margin-top: 30px;
   width: 100%;
   font-size: 16px;
+`
+
+
+export const PaymentWarning = styled.div`
+  display: flex;
+  max-width: max-content;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+  border-radius: 8px;
+  background: ${theme.colors.primary};
 `

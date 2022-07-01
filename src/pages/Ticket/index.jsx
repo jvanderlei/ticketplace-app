@@ -1,51 +1,74 @@
 import React, { useState, useEffect } from 'react'
+import { Categories } from '../../utils/CategoryMap'
+import { useParams } from 'react-router-dom'
 import * as S from './style'
 import { ButtonAtom } from '../../components/Atoms/'
 import { GET, PATCH } from '../../services/apiconnect'
 
 
-const Ticket = (eventID) => {
-  
-  let mockData = {
-    eventID: 1,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10',
-    eventName: 'Avril Lavigne - São Paulo',
-    address: 'Praça Roberto Gomes Pedrosa, 1 - Morumbi, São Paulo - SP, 05653-070',
-    price: 300.00,
-    category: 'music',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit qui culpa nobis iste, officiis, excepturi magnam itaque, laudantium ipsum reprehenderit facilis alias dolorum nisi. Quo totam corrupti saepe nostrum enim.Cadeira no Camarote a esquerda do palco, com Open Bar, visão privilegiada e com acesso ao Meet & Greet'
-  }
 
-  useEffect(() => {
-    // dados sql
-      GET('users')
-      .then(data => {console.log(data)})
-      PATCH('users/1')
-      .then(data => {console.log(data)})
-  })
+const Ticket = () => {
+  let { tickedId } = useParams()
+
+  const [ticket, setTicket] = useState({})
+  const [sucess, setSucess] = useState()
+  const { id, eventName, ticketImage, description, time, date, address, value, categoryId } = ticket
+  const CategoryMap = Categories[categoryId]
 
   const moneyFormat = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
   })
 
+  const handleBuyTicket = async () => {
+    const data = {
+      ticketId: id,
+    }
+    await PATCH(`userTickets/buy/${id}`, JSON.stringify(data))
+      .then(data => {
+        setSucess(true)
+
+      }).catch(err => {
+        console.log(err)
+      });
+  }
+
+  useEffect(() => {
+    GET(`tickets/${tickedId}`)
+      .then(data => {
+        console.log(data.ticket)
+        const { id, eventName, categoryId, ticketImage, description, time, date, address, value } = data.ticket
+        console.log(id)
+        setTicket({ id, eventName, categoryId, ticketImage, description, time, date, address, value })
+      }).catch(err => {
+        console.log(err)
+      })
+
+  }, [])
+
+
   return (
     <S.TicketWrapper>
+      {sucess && (
+        <>
+
+        </>
+      )}
       <S.ImageWrapper>
-        <S.Image src={mockData.image}></S.Image>
+        <S.Image src={ticketImage}></S.Image>
       </S.ImageWrapper>
       <S.Infos>
-        <S.Category>{mockData.category}</S.Category>
-        <S.Title>{mockData.eventName}</S.Title>
-        <S.Address><b>{mockData.address}</b></S.Address>
-        <S.Description>{mockData.description}</S.Description>
+        <S.Title>{eventName}</S.Title>
+        <S.Category>{CategoryMap}</S.Category>
+        <S.Address><b>{address}</b></S.Address>
+        <S.Description>{description}</S.Description>
+        <S.PaymentWrapper>
+          <S.Buy>
+            <S.Price>{moneyFormat.format(value)}</S.Price>
+            <ButtonAtom title="Comprar" fullWidth onClick={handleBuyTicket} />
+          </S.Buy>
+        </S.PaymentWrapper>
       </S.Infos>
-      <S.Buy>
-        <S.Price>{moneyFormat.format(mockData.price)}</S.Price>
-        <a href={`/ticket/${eventID}`}>
-          <ButtonAtom title="Comprar" fullWidth />
-        </a>
-      </S.Buy>
     </S.TicketWrapper>
   )
 }

@@ -21,26 +21,29 @@ const CreateTicket = () => {
 		price: ""
 	});
 
+	const { eventName, categoryId, ticketImage, address, date, time, description, price } = inputValue;
+	console.log(inputValue)
+
 	useEffect(() => {
 		if (ticketId) {
 			GET(`/tickets/${ticketId}`)
-				.then(ticket => {
+				.then(res => {
 					setInputValue({
-						eventName: ticket.eventName,
-						ticketImage: ticket.ticketImage,
-						categoryId: ticket.categoryId,
-						address: ticket.address,
-						date: ticket.date,
-						time: ticket.time,
-						description: ticket.description,
-						price: ticket.value
+						eventName: res.ticket.eventName,
+						ticketImage: res.ticket.ticketImage,
+						categoryId: res.ticket.categoryId,
+						address: res.ticket.address,
+						date: res.ticket.date,
+						time: res.ticket.time,
+						description: res.ticket.description,
+						price: res.ticket.value
+
 					})
 				})
 		}
-	})
+	}, [])
 
 
-	const { eventName, categoryId, ticketImage, address, date, time, description, price } = inputValue;
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -64,11 +67,15 @@ const CreateTicket = () => {
 		}
 		recObj = JSON.stringify(recObj)
 		if (ticketId) {
-			PATCH(`/tickets/${ticketId}`, recObj)
+			PATCH(`tickets/${ticketId}`, recObj)
 				.then(data => {
 					console.log(data)
+				}).catch(err => {
+					console.log(err)
 				})
-		} else {
+		}
+
+		else {
 			POST("tickets", recObj)
 				.then(data => {
 					console.log(data);
@@ -95,12 +102,15 @@ const CreateTicket = () => {
 	return (
 		<S.Container>
 			<S.CreateTicketWrapper>
-
 				<S.ImageWrapper>
 					<S.Image src={ticketImage || Blank} ></S.Image>
 				</S.ImageWrapper>
 				<S.FormWrapper>
-					<h4>Criar Evento</h4>
+					<h4>
+						{
+							ticketId ? "Editar Ticket" : "Criar Ticket"
+						}
+					</h4>
 					<S.Form onSubmit={submitTicket}>
 						<InputAtom
 							type="text"
@@ -172,7 +182,7 @@ const CreateTicket = () => {
 						/>
 						<ButtonAtom
 							type="submit"
-							title={ticketId?"Atualiza Evento":'Cria Evento'}
+							title={ticketId ? "Atualiza Evento" : 'Cria Evento'}
 							backgroundColor='#2877ee'
 							fullWidth
 						/>
