@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { AuthLogoutService } from '../../../services/AuthService'
 import { UserContext } from '../../../context/UserContext'
+import FakeLogo from '../../../assets/images/png/FakeLogo.png'
+import { ButtonAtom } from '../../Atoms'
 import * as S from './styles'
 import {
   BiSearch,
@@ -9,8 +11,10 @@ import {
   BiHeart,
   BiPackage,
 } from 'react-icons/bi'
-import FakeLogo from '../../../assets/images/png/FakeLogo.png'
-import { ButtonAtom } from '../../Atoms'
+import {
+  GiTicket
+} from 'react-icons/gi'
+
 
 const Navbar = () => {
 
@@ -45,15 +49,15 @@ const Navbar = () => {
             {token && (
               <>
                 <S.NavbarItem>
-                  <span>My tickets</span>
-                  <S.Link href="/buys">
-                    <BiPackage />
+                  <span>New ticket</span>
+                  <S.Link href="/new">
+                    <GiTicket />
                   </S.Link>
                 </S.NavbarItem>
                 <S.NavbarItem>
-                  <span>Cart</span>
-                  <S.Link href="/cart">
-                    <BiCart />
+                  <span>My tickets</span>
+                  <S.Link href="/mytickets">
+                    <BiPackage />
                   </S.Link>
                 </S.NavbarItem>
                 <S.NavbarItem>

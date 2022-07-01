@@ -14,11 +14,12 @@ export async function POST(apiDesc, dataSend) {
   return await fetch(apiURI + apiDesc, {
     method: 'POST', headers: {
       "Content-type": "application/json",
-      'authorization': `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5NzdhNDc2LTkxNGEtNDk3My05ZWIyLTAzYzE4OWI3ZjY0ZSIsImlhdCI6MTY1NjQ5MjY1NywiZXhwIjoxNjU2NTc5MDU3fQ.czw40LKOXuLmgW5pYUM2PMDIXkwxaw3YcFjChyspWn0"}`,
+      'Authorization': `Bearer ${localStorage.getItem('TICKETPLACE@TOKEN')}`,
     },
-    body: JSON.stringify(dataSend),
+    body: dataSend,
   })
     .then(data => data.json())
+    .catch(err => console.log(err))
 }
 
 export async function PATCH(apiDesc, dataSend) {

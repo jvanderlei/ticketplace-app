@@ -5,6 +5,7 @@ import { GET, PATCH } from '../../services/apiconnect'
 
 
 const Ticket = (eventID) => {
+  
   let mockData = {
     eventID: 1,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqYGGPbhDhXAEsSOgJ3F3m4SnGBbQl5UfMcp_yk292g&s=10',
@@ -31,7 +32,7 @@ const Ticket = (eventID) => {
   return (
     <S.TicketWrapper>
       <S.ImageWrapper>
-        <S.Image src={mockData.image} ></S.Image>
+        <S.Image src={mockData.image}></S.Image>
       </S.ImageWrapper>
       <S.Infos>
         <S.Category>{mockData.category}</S.Category>

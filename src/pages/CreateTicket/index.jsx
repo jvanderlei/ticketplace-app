@@ -8,9 +8,9 @@ import { GET, POST } from '../../services/apiconnect'
 const CreateTicket = () => {
 
     const [inputValue, setInputValue] = useState({
-        // eventName: "",
-        // imageUrl: "",
-        // category: "",
+        eventName: "Aaaaa",
+        ticketImage: "Aaaaa",
+        categoryId: 1,
         address: "",
         date: "",
         time: "",
@@ -19,7 +19,7 @@ const CreateTicket = () => {
     });
     const [imageUrl, setImageUrl] = useState("")
 
-    const { eventName, category, address, date, time, description, price, } = inputValue;
+    const { eventName, categoryId, ticketImage, address, date, time, description, price } = inputValue;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,10 +29,12 @@ const CreateTicket = () => {
         }));
     };
 
-
     const submitTicket = (e) => {
         e.preventDefault();
         let recObj = {
+            eventName,
+            categoryId,
+            ticketImage,
             address,
             date,
             time,

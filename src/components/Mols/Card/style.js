@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  grid-column: span 3;
   width: 100%;
-  max-width: 250px;
   border-radius: 8px;
   overflow: hidden;
   background: #f8f8f8;

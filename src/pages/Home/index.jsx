@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <Slider images={images} />
       <section>
-        <S.Title>Populares</S.Title>
+        <S.Title>Recentes</S.Title>
         <S.Populares>
           {Populares.map(({ eventID, image, eventName, price, category }) => (
             <Card

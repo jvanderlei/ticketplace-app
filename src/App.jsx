@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { PublicRoute, PrivateRoute } from './routes'
-import { Login, Register, Home, TicketsList, Ticket, CreateTicket, Profile } from './pages'
+import { Login, Register, Home, TicketsList, Ticket, CreateTicket, Profile, MyTickets } from './pages'
 import { Layout } from './components'
 
 
@@ -67,6 +67,14 @@ function App() {
           element={
             <PrivateRoute>
               <CreateTicket />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/mytickets"
+          element={
+            <PrivateRoute>
+              <MyTickets />
             </PrivateRoute>
           }
         />

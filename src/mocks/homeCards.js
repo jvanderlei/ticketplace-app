@@ -27,13 +27,6 @@ export const Populares = [
     price: 100.00,
     category: 'Esportes'
   },
-  {
-    eventID: 5,
-    image: 'https://d106p58duwuiz5.cloudfront.net/event/cover/62db1df49e8be120d373f6cc4d484b93.jpg',
-    eventName: 'OPEN Double - 25.06',
-    price: 120.00,
-    category: 'Party'
-  },
 ]
 
 export const Music = [
@@ -65,13 +58,6 @@ export const Music = [
     price: 200.00,
     category: 'Music'
   },
-  {
-    eventID: 5,
-    image: 'https://d106p58duwuiz5.cloudfront.net/event/cover/62db1df49e8be120d373f6cc4d484b93.jpg',
-    eventName: 'OPEN Double - 25.06',
-    price: 120.00,
-    category: 'Party'
-  },
 ]
 
 export const Esportes = [
@@ -102,12 +88,5 @@ export const Esportes = [
     eventName: 'FOR X AME - Brasileirão Assaí',
     price: 10.00,
     category: 'esportes'
-  },
-  {
-    eventID: 5,
-    image: 'https://esportegoiano.com.br/wp-content/uploads/2020/02/Tabela-Brasileir%C3%A3o-S%C3%A9rie-A-2020-Goi%C3%A1s-e-Atl%C3%A9tico-GO.jpeg',
-    eventName: 'GOI x ACG - Brasileirão Assaí',
-    price: 10.00,
-    category: 'Esportes'
   },
 ]

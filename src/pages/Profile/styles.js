@@ -60,7 +60,7 @@ export const ProfileHeaderEffect = styled.div`
 
 export const ProfileImageContainer = styled.div`
   border-radius: 9999px;
-  border: 3px solid #fff;
+  border: 3px solid #f2f2f2;
   width: 150px;
   height: 150px;
   position: absolute;
