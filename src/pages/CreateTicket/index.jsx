@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react'
 import * as S from './style'
 import Blank from '../../assets/images/png/No-Image-Placeholder.svg.png'
 import { ButtonAtom, InputAtom } from '../../components/Atoms/'
-import { GET, POST } from '../../services/apiconnect'
+import { GET, PATCH, POST } from '../../services/apiconnect'
+import { useParams } from 'react-router-dom'
+
 
 
 const CreateTicket = () => {
+	let { ticketId } = useParams();
+
 	const [inputValue, setInputValue] = useState({
 		eventName: "",
 		ticketImage: "",
@@ -16,6 +20,25 @@ const CreateTicket = () => {
 		description: "",
 		price: ""
 	});
+
+	useEffect(() => {
+		if (ticketId) {
+			GET(`/tickets/${ticketId}`)
+				.then(ticket => {
+					setInputValue({
+						eventName: ticket.eventName,
+						ticketImage: ticket.ticketImage,
+						categoryId: ticket.categoryId,
+						address: ticket.address,
+						date: ticket.date,
+						time: ticket.time,
+						description: ticket.description,
+						price: ticket.value
+					})
+				})
+		}
+	})
+
 
 	const { eventName, categoryId, ticketImage, address, date, time, description, price } = inputValue;
 
@@ -40,11 +63,17 @@ const CreateTicket = () => {
 			description
 		}
 		recObj = JSON.stringify(recObj)
-		console.log(recObj)
-		POST("tickets", recObj)
-			.then(data => {
-				console.log(data);
-			})
+		if (ticketId) {
+			PATCH(`/tickets/${ticketId}`, recObj)
+				.then(data => {
+					console.log(data)
+				})
+		} else {
+			POST("tickets", recObj)
+				.then(data => {
+					console.log(data);
+				})
+		}
 		setInputValue({
 			eventName: "",
 			categoryId: "",
@@ -143,7 +172,7 @@ const CreateTicket = () => {
 						/>
 						<ButtonAtom
 							type="submit"
-							title='Cria Evento'
+							title={ticketId?"Atualiza Evento":'Cria Evento'}
 							backgroundColor='#2877ee'
 							fullWidth
 						/>
